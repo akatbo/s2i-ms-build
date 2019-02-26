@@ -14,6 +14,8 @@ LABEL io.k8s.description="Platform for building and running Java8 applications" 
       io.openshift.s2i.destination="/opt/app" \
       io.openshift.s2i.scripts-url=image:///usr/local/s2i
 
+COPY ./s2i/bin /usr/local/s2i 
+
 RUN yum update -y && \
   yum install -y curl && \
   yum install -y java-$JAVA_VERSON-openjdk java-$JAVA_VERSON-openjdk-devel && \
@@ -28,9 +30,7 @@ ENV MAVEN_HOME /usr/share/maven
 
 RUN mkdir -p /opt/app
 
-RUN adduser --system --base-dir /opt/app -u 10001 javauser && chown -R javauser: /opt/app && chmod +x -R /usr/local/s2i
-
-COPY ./s2i/bin /usr/local/s2i 
+RUN adduser --system --base-dir /opt/app -u 10001 javauser && chown -R javauser: /opt/app 
 
 USER 10001
 
