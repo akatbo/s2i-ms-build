@@ -30,7 +30,7 @@ RUN mkdir -p /opt/app
 
 RUN adduser --system --base-dir /opt/app -u 10001 javauser && chown -R javauser: /opt/app
 
-COPY ./s2i/bin /usr/local/s2i
+COPY ./s2i/bin /usr/local/s2i && chmod +x -R /usr/local/s2i
 
 USER 10001
 
