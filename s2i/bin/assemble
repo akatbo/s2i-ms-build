@@ -1,0 +1,40 @@
+#!/bin/bash -e
+#
+# S2I assemble script for the 's2i-ms-build' image.
+# The 'assemble' script builds your application source so that it is ready to run.
+#
+
+# If the 's2i-ms-build' assemble script is executed with the '-h' flag, print the usage.
+if [[ "$1" == "-h" ]]; then
+	exec /usr/local/s2i/usage
+fi
+
+# Restore artifacts from the previous build (if they exist).
+#
+if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
+  echo "---> Restoring build artifacts..."
+  mv /tmp/artifacts/. ./
+fi
+
+echo "---> Installing application source..."
+cp -Rf /tmp/src/. ./
+
+echo "---> Building application from source..."
+# TODO: Add build steps for your application, eg npm install, bundle install, pip install, etc.
+mvn clean package -U
+
+echo "---> Prep Artifact for deployment ..."
+
+if [ $(ls /opt/app/src/target/*.jar | wc -l) -eq 1 ]; then
+
+   rm -rf /opt/app/src/output
+   
+   mkdir -p /opt/app/output
+   
+   cd /opt/app/output
+   
+   mv /opt/app/src/target/*.jar service-server.jar
+else
+  echo "Jar not found in /opt/app/src/"target
+  exit 1
+fi
