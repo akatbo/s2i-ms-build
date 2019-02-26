@@ -20,7 +20,7 @@ echo "---> Installing application source..."
 
 pwd
 
-ls -ltr
+ls -ltr /opt/app-root/src
 
 # cp -Rf /tmp/src/. ./
 # ls -ltr
