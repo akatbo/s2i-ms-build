@@ -16,6 +16,8 @@ LABEL io.k8s.description="Platform for building and running Java8 applications" 
 
 COPY ./s2i/bin /usr/local/s2i 
 
+RUN chmod +x -R /usr/local/s2i
+
 RUN yum update -y && \
   yum install -y curl && \
   yum install -y java-$JAVA_VERSON-openjdk java-$JAVA_VERSON-openjdk-devel 
