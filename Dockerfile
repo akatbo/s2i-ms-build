@@ -28,9 +28,9 @@ ENV MAVEN_HOME /usr/share/maven
 
 RUN mkdir -p /opt/app
 
-RUN adduser --system --base-dir /opt/app -u 10001 javauser && chown -R javauser: /opt/app
+RUN adduser --system --base-dir /opt/app -u 10001 javauser && chown -R javauser: /opt/app && chmod +x -R /usr/local/s2i
 
-COPY ./s2i/bin /usr/local/s2i && chmod +x -R /usr/local/s2i
+COPY ./s2i/bin /usr/local/s2i 
 
 USER 10001
 
