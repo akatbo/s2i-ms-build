@@ -7,17 +7,6 @@ ENV BUILDER_VERSION 1.0
 ENV JAVA_VERSON 1.8.0
 ENV MAVEN_VERSION 3.5.4
 
-LABEL io.k8s.description="Platform for building and running Java8 applications" \
-      io.k8s.display-name="Java8" \
-      io.openshift.expose-services="8080:http" \
-      io.openshift.tags="builder,java8" \
-      io.openshift.s2i.destination="/opt/app" \
-      io.openshift.s2i.scripts-url=image:///usr/local/s2i
-
-COPY ./s2i/bin /usr/local/s2i 
-
-RUN chmod +x -R /usr/local/s2i
-
 RUN yum update -y && \
   yum install -y curl && \
   yum install -y java-$JAVA_VERSON-openjdk java-$JAVA_VERSON-openjdk-devel 
@@ -30,6 +19,17 @@ RUN curl -fsSL https://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/bina
 
 ENV JAVA_HOME /usr/lib/jvm/java
 ENV MAVEN_HOME /usr/share/maven
+
+LABEL io.k8s.description="Platform for building and running Java8 applications" \
+      io.k8s.display-name="Java8" \
+      io.openshift.expose-services="8080:http" \
+      io.openshift.tags="builder,java8" \
+      io.openshift.s2i.destination="/opt/app" \
+      io.openshift.s2i.scripts-url=image:///usr/local/s2i
+
+COPY ./s2i/bin /usr/local/s2i 
+
+RUN chmod +x -R /usr/local/s2i
 
 RUN mkdir -p /opt/app
 
