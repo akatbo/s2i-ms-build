@@ -17,25 +17,30 @@ if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
 fi
 
 echo "---> Installing application source..."
-# cp -Rf /tmp/src/. ./
+
+pwd
+
 ls -ltr
 
-echo "---> Building application from source..."
+# cp -Rf /tmp/src/. ./
+# ls -ltr
+
+# echo "---> Building application from source..."
 # TODO: Add build steps for your application, eg npm install, bundle install, pip install, etc.
-mvn clean package -U
+#mvn clean package -U
 
-echo "---> Prep Artifact for deployment ..."
+#echo "---> Prep Artifact for deployment ..."
 
-if [ $(ls /opt/app/src/target/*.jar | wc -l) -eq 1 ]; then
+#if [ $(ls /opt/app/src/target/*.jar | wc -l) -eq 1 ]; then
 
-   rm -rf /opt/app/src/output
+#   rm -rf /opt/app/src/output
    
-   mkdir -p /opt/app/output
+#   mkdir -p /opt/app/output
    
-   cd /opt/app/output
+#   cd /opt/app/output
    
-   mv /opt/app/src/target/*.jar service-server.jar
-else
-  echo "Jar not found in /opt/app/src/"target
-  exit 1
-fi
+#   mv /opt/app/src/target/*.jar service-server.jar
+# else
+#  echo "Jar not found in /opt/app/src/"target
+#  exit 1
+# fi
