@@ -18,8 +18,9 @@ COPY ./s2i/bin /usr/local/s2i
 
 RUN yum update -y && \
   yum install -y curl && \
-  yum install -y java-$JAVA_VERSON-openjdk java-$JAVA_VERSON-openjdk-devel && \
-  yum clean all
+  yum install -y java-$JAVA_VERSON-openjdk java-$JAVA_VERSON-openjdk-devel 
+  
+#  && \ yum clean all
 
 RUN curl -fsSL https://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xzf - -C /usr/share \
   && mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven \
