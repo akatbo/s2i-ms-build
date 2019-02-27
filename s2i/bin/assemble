@@ -22,7 +22,7 @@ pwd
 
 ls -ltr /tmp
 
-mv -f /tmp/src ./
+# mv -f /tmp/src ./
 
 echo "---> ls -ltr /opt/app-root"
 
