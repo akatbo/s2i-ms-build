@@ -22,6 +22,10 @@ pwd
 
 ls -ltr /opt/app-root/src
 
+cd /opt/app
+
+ls -ltr /opt/app
+
 # cp -Rf /tmp/src/. ./
 # ls -ltr
 
