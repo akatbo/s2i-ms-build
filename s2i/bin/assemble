@@ -18,45 +18,9 @@ fi
 
 echo "---> Installing application source..."
 
-pwd
-
-ls -ltr /tmp
-
-# mv -f /tmp/src ./
-
-echo "---> ls -ltr /opt/app-root"
-
-ls -l /opt/app-root
-
 echo "---> ls -l /opt/app-root/src"
 
 ls -l /opt/app-root/src
-
-
-# ls -l /tmp/srcipts
-
-#cd /opt/app-root
-
-#pwd
-
-#ls -ltr /opt/app-root
-
-#cd /opt/app-root/src
-
-#pwd 
-
-#ls -ltr /opt/app-root/src
-
-#cd /opt/app-root/etc
-
-#pwd
-
-#ls -ltr
-
-#ls -ltr /opt/app
-
-# cp -Rf /tmp/src/. ./
-# ls -ltr
 
 # echo "---> Building application from source..."
 # TODO: Add build steps for your application, eg npm install, bundle install, pip install, etc.
