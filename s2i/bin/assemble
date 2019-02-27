@@ -24,9 +24,9 @@ echo "---> ls -ltr /opt/app-root"
 
 ls -l /opt/app-root
 
-echo "---> ls -l /opt/app-root/src/src"
+echo "---> ls -l /opt/app-root/src"
 
-ls -l /opt/app-root/src/src
+ls -l /opt/app-root/src
 
 
 # ls -l /tmp/srcipts
