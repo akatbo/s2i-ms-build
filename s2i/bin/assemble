@@ -16,19 +16,20 @@ if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
   mv /tmp/artifacts/. ./
 fi
 
-echo "---> Building application from source..."
-
-mvn clean package -U
-
-echo "---> Prep Artifact for deployment ..."
-
-if [ $(ls /opt/app-root/src/target/*.jar | wc -l) -eq 1 ]; then
-   
-  mkdir -p /opt/app-root/output
-   
-  mv -f /opt/app-root/src/target/*.jar /opt/app-root/output/service-server.jar
-
+if [ $(ls /opt/app-root/src/*.jar | wc -l) -eq 1 ]; then
+   echo "---> Preparing to run the service ..."
+   ls /opt/app-root/src/*.jar
 else
-  echo "Jar not found in /opt/app-root/src/"target
-  exit 1
-fi
+  echo "---> Building application from source..."
+  mvn clean package -U
+
+  echo "---> Prep Artifact for deployment ..."
+
+  if [ $(ls /opt/app-root/src/target/*.jar | wc -l) -eq 1 ]; then   
+    mkdir -p /opt/app-root/output   
+    mv -f /opt/app-root/src/target/*.jar /opt/app-root/output/service-server.jar
+  else
+    echo "Jar not found in /opt/app-root/src/"target
+    exit 1
+  fi
+fi  
