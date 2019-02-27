@@ -16,7 +16,9 @@ if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
   mv /tmp/artifacts/. ./
 fi
 
-echo "---> Installing application source..."
+echo "---> Building application from source..."
+
+mvn clean package -U
 
 ls -ltr
 
