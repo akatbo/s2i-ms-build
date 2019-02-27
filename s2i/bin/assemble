@@ -20,7 +20,7 @@ echo "---> Installing application source..."
 
 # ls -l /tmp/artifacts
 
-mv /tmp/src/. ./ 
+cp /tmp/src/. ./src 
 
 ls -l /opt/app-root/src
 
