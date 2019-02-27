@@ -18,6 +18,8 @@ fi
 
 echo "---> Installing application source..."
 
+pwd
+
 mv -f /tmp/src ./
 
 echo "---> ls -ltr /opt/app-root"
