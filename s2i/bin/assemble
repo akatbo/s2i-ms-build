@@ -22,7 +22,7 @@ echo "---> Installing application source..."
 
 cp -R /tmp/src/ ./src 
 
-ls -l /opt/app-root/src
+ls -l /opt/app-root/src/src
 
 # ls -l /tmp/srcipts
 
