@@ -20,6 +20,8 @@ echo "---> Installing application source..."
 
 # ls -l /tmp/artifacts
 
+ls -l /tmp
+
 cd /opt/app-root
 
 pwd
