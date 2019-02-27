@@ -18,7 +18,7 @@ fi
 
 echo "---> Installing application source..."
 
-ls -l /tmp/artifacts
+# ls -l /tmp/artifacts
 
 pwd
 
