@@ -32,6 +32,12 @@ pwd
 
 ls -ltr /opt/app-root/src
 
+cd /opt/app-root/etc
+
+pwd
+
+ls -ltr
+
 #ls -ltr /opt/app
 
 # cp -Rf /tmp/src/. ./
