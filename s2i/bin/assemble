@@ -18,9 +18,7 @@ fi
 
 echo "---> Installing application source..."
 
-echo "---> ls -l /opt/app-root/src"
-
-ls -l /opt/app-root/src
+ls -ltr
 
 # echo "---> Building application from source..."
 # TODO: Add build steps for your application, eg npm install, bundle install, pip install, etc.
