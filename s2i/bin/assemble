@@ -32,5 +32,3 @@ else
   echo "Jar not found in /opt/app-root/src/"target
   exit 1
 fi
-
-ls -ltr /opt/app-root/output
