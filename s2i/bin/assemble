@@ -20,24 +20,17 @@ echo "---> Building application from source..."
 
 mvn clean package -U
 
-ls -ltr
+echo "---> Prep Artifact for deployment ..."
 
-# echo "---> Building application from source..."
-# TODO: Add build steps for your application, eg npm install, bundle install, pip install, etc.
-#mvn clean package -U
-
-#echo "---> Prep Artifact for deployment ..."
-
-#if [ $(ls /opt/app/src/target/*.jar | wc -l) -eq 1 ]; then
-
-#   rm -rf /opt/app/src/output
+if [ $(ls /opt/app-root/src/target/*.jar | wc -l) -eq 1 ]; then
    
-#   mkdir -p /opt/app/output
+  mkdir -p /opt/app-root/output
    
-#   cd /opt/app/output
-   
-#   mv /opt/app/src/target/*.jar service-server.jar
-# else
-#  echo "Jar not found in /opt/app/src/"target
-#  exit 1
-# fi
+  mv -f /opt/app-root/src/target/*.jar /opt/app-root/output/service-server.jar
+
+else
+  echo "Jar not found in /opt/app-root/src/"target
+  exit 1
+fi
+
+ls -ltr /opt/app-root/output
