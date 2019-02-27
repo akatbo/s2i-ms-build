@@ -18,7 +18,7 @@ fi
 
 echo "---> Installing application source..."
 
-cp -R /tmp/src .
+# cp -R /tmp/src .
 
 echo "---> ls -l /opt/app-root/src"
 
