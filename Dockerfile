@@ -24,7 +24,7 @@ LABEL io.k8s.description="Platform for building and running Java8 applications" 
       io.k8s.display-name="Java8" \
       io.openshift.expose-services="8080:http" \
       io.openshift.tags="builder,java8" \
-      #io.openshift.s2i.destination="/opt/app" \
+      io.openshift.s2i.destination="/opt/app-root" \
       io.openshift.s2i.scripts-url=image:///usr/local/s2i
 
 COPY ./s2i/bin /usr/local/s2i 
