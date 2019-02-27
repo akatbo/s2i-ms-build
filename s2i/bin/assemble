@@ -24,7 +24,11 @@ pwd
 
 ls -ltr /opt/app-root/src
 
-#cd /opt/app
+cd /opt/app
+
+pwd 
+
+ls -ltr /opt/app
 
 #ls -ltr /opt/app
 
