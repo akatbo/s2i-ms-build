@@ -20,9 +20,9 @@ echo "---> Installing application source..."
 
 # cp -R /tmp/src .
 
-echo "---> ls -l /opt/app-root/src"
+echo "---> ls -ltr /opt/app-root"
 
-ls -l /opt/app-root/src
+ls -l /opt/app-root
 
 echo "---> ls -l /opt/app-root/src/src"
 
